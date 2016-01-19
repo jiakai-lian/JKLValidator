@@ -1,0 +1,17 @@
+PODS:
+  - JKLValidator (0.1.0)
+  - Kiwi (2.4.0)
+
+DEPENDENCIES:
+  - JKLValidator (from `../`)
+  - Kiwi
+
+EXTERNAL SOURCES:
+  JKLValidator:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JKLValidator: 7c6b08545fbdf2d5b299d6f24f82389f99837564
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+
+COCOAPODS: 0.37.1

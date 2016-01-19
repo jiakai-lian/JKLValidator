@@ -1,0 +1,6 @@
+framework module JKLValidator {
+  umbrella header "Pods-JKLValidator_Tests-JKLValidator-umbrella.h"
+
+  export *
+  module * { export * }
+}

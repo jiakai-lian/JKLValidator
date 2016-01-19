@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'JKLValidator_Example', :exclusive => true do
+  pod "JKLValidator", :path => "../"
+end
+
+target 'JKLValidator_Tests', :exclusive => true do
+  pod "JKLValidator", :path => "../"
+
+  pod 'Kiwi'
+end
