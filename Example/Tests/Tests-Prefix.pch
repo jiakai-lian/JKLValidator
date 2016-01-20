@@ -2,9 +2,8 @@
 
 #ifdef __OBJC__
 
-//  @import Kiwi;
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
-//@import Specta;
+@import JKLValidator;
 
 #endif

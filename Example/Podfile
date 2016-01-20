@@ -8,7 +8,6 @@ end
 target 'JKLValidator_Tests', :exclusive => true do
   pod "JKLValidator", :path => "../"
 
-#  pod 'Kiwi'
   pod 'Specta', '~> 1.0'
   pod 'Expecta',     '~> 1.0'   # expecta matchers
   # pod 'OCMockito',   '~> 1.0'   # OCMock
