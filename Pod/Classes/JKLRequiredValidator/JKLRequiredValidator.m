@@ -32,7 +32,7 @@
     if([self.input isKindOfClass:[NSString class]])
     {
         return [((NSString *)self.input) stringByTrimmingCharactersInSet:
-                                         [NSCharacterSet whitespaceCharacterSet]].length;
+                                         [NSCharacterSet whitespaceAndNewlineCharacterSet]].length;
     }
     else if([self.input respondsToSelector:@selector(count)])
     {
