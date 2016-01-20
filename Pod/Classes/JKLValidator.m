@@ -14,7 +14,17 @@
 
 @implementation JKLValidator
 
-- (BOOL)validateWithError:(NSError **)error {
++ (instancetype)instance
+{
+    return [[self alloc]init];
+}
+
+//- (BOOL)validateWithError:(NSError **)error {
+//    return YES;
+//}
+
+- (BOOL)validateInput:(id)input error:(NSError **)error
+{
     return YES;
 }
 

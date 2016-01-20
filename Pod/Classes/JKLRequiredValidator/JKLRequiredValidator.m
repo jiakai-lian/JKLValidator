@@ -10,34 +10,49 @@
 
 @implementation JKLRequiredValidator
 
-+ (instancetype)validatorWithInput:(NSObject *)input {
-    return [[self alloc] initWithInput:input];
-}
+//+ (instancetype)validatorWithInput:(NSObject *)input {
+//    return [[self alloc] initWithInput:input];
+//}
 
-- (instancetype)initWithInput:(NSObject *)input {
-    self = [super init];
-    if (self) {
-        _input = [input copy];
-    }
-    return self;
-}
+//- (instancetype)initWithInput:(NSObject *)input {
+//    self = [super init];
+//    if (self) {
+//        _input = [input copy];
+//    }
+//    return self;
+//}
 
 #pragma mark - JKLValidator
 
 //override
-- (BOOL)validateWithError:(NSError *)error {
-    if ([self.input isKindOfClass:[NSString class]]) {
-        return [((NSString *) self.input) stringByTrimmingCharactersInSet:
+//- (BOOL)validateWithError:(NSError **)error {
+//    if ([self.input isKindOfClass:[NSString class]]) {
+//        return [((NSString *) self.input) stringByTrimmingCharactersInSet:
+//                [NSCharacterSet whitespaceAndNewlineCharacterSet]].length;
+//    }
+//    else if ([self.input respondsToSelector:@selector(count)]) {
+//        return [self.input count];
+//    }
+//    else if ([self.input isEqual:[NSNull null]]) {
+//        return NO;
+//    }
+//
+//    return self.input;
+//}
+
+- (BOOL)validateInput:(id)input error:(NSError **)error {
+    if ([input isKindOfClass:[NSString class]]) {
+        return [((NSString *) input) stringByTrimmingCharactersInSet:
                 [NSCharacterSet whitespaceAndNewlineCharacterSet]].length;
     }
-    else if ([self.input respondsToSelector:@selector(count)]) {
-        return [self.input count];
+    else if ([input respondsToSelector:@selector(count)]) {
+        return [input count];
     }
-    else if ([self.input isEqual:[NSNull null]]) {
+    else if ([input isEqual:[NSNull null]]) {
         return NO;
     }
-
-    return self.input;
+    
+    return input;
 }
 
 @end

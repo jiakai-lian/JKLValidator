@@ -8,12 +8,11 @@
 
 #import "JKLValidator.h"
 
-@interface JKLRequiredValidator
-<ObjectType: NSObject *> : JKLValidator
+@interface JKLRequiredValidator<ObjectType: NSObject *> : JKLValidator
 
-@property(nonatomic, copy, readonly) ObjectType input;
+//@property(nonatomic, copy, readonly) ObjectType input;
 
-+ (instancetype)validatorWithInput:(NSObject *)input;
-- (instancetype)initWithInput:(ObjectType)input;
+//+ (instancetype)validatorWithInput:(NSObject *)input;
+//- (instancetype)initWithInput:(ObjectType)input;
 
 @end

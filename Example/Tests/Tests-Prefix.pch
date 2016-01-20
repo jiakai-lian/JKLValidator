@@ -4,6 +4,5 @@
 
 #import <Specta/Specta.h>
 #import <Expecta/Expecta.h>
-@import JKLValidator;
 
 #endif
