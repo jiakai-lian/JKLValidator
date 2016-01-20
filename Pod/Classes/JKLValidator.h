@@ -12,12 +12,12 @@
 
 @required
 
-- (BOOL) validateWithError:(NSError **)error;
+- (BOOL)validateWithError:(NSError **)error;
 
 @end
 
 @interface JKLValidator : NSObject
 
-@property(nonatomic,strong,readonly) id<JKLValidator> validator;
+@property(nonatomic, strong, readonly) id <JKLValidator> validator;
 
 @end

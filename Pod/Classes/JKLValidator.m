@@ -8,20 +8,18 @@
 
 #import "JKLValidator.h"
 
-@interface JKLValidator()<JKLValidator>
+@interface JKLValidator () <JKLValidator>
 
 @end
 
 @implementation JKLValidator
 
-- (BOOL) validateWithError:(NSError **)error
-{
+- (BOOL)validateWithError:(NSError **)error {
     return YES;
 }
 
 
-- (id<JKLValidator>)validator
-{
+- (id <JKLValidator>)validator {
     return self;
 }
 
