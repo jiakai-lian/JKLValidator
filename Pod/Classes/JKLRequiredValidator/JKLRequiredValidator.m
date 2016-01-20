@@ -40,19 +40,50 @@
 //    return self.input;
 //}
 
-- (BOOL)validateInput:(id)input error:(NSError **)error {
+- (BOOL)validateInput:(id)input
+                error:(NSError *__autoreleasing *)outError {
+    BOOL valid = NO;
+    NSString * failureReason = @"";
+
     if ([input isKindOfClass:[NSString class]]) {
-        return [((NSString *) input) stringByTrimmingCharactersInSet:
+        valid = [((NSString *) input) stringByTrimmingCharactersInSet:
                 [NSCharacterSet whitespaceAndNewlineCharacterSet]].length;
+        
+        if(!valid)
+        {
+            failureReason= NSLocalizedString(@"The input string is empty after trimmed.", nil);
+        }
     }
     else if ([input respondsToSelector:@selector(count)]) {
-        return [input count];
+        valid = [input count];
+        
+        if(!valid)
+        {
+            failureReason= NSLocalizedString(@"The input collection has no items.", nil);
+        }
     }
     else if ([input isEqual:[NSNull null]]) {
-        return NO;
+        valid = NO;
+        failureReason= NSLocalizedString(@"The input object is a NSNull object.", nil);
     }
-    
-    return input;
+    else {
+        valid = input;
+        
+        if(!valid)
+        {
+            failureReason= NSLocalizedString(@"The input object is nil.", nil);
+        }
+    }
+
+    if (!valid) {
+        if (outError) {
+            *outError = [NSError errorWithDomain:JKLValidatorErrorDomain
+                                            code:JKLValidatorErrorCodeInvalidInput
+                                        userInfo:@{NSLocalizedFailureReasonErrorKey:failureReason}];
+        }
+    }
+
+    return valid;
 }
 
 @end

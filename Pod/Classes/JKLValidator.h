@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+UIKIT_EXTERN NSString * const JKLValidatorErrorDomain;
+
+typedef NS_ENUM(NSUInteger, JKLValidatorErrorCode) {
+    JKLValidatorErrorCodeInvalidInput = 0,
+};
+
+
 @protocol JKLValidator <NSObject>
 
 @required
 
 //- (BOOL)validateWithError:(NSError **)error;
-- (BOOL)validateInput:(id)input error:(NSError **)error;
+- (BOOL)validateInput:(id)input error:(NSError * __autoreleasing *)error;
 
 @end
 

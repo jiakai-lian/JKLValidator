@@ -8,6 +8,8 @@
 
 #import "JKLValidator.h"
 
+NSString * const JKLValidatorErrorDomain = @"JKLValidatorErrorDomain";
+
 @interface JKLValidator () <JKLValidator>
 
 @end
