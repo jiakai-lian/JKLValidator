@@ -38,6 +38,10 @@
     {
         return [self.input count];
     }
+    else if([self.input isEqual:[NSNull null]])
+    {
+        return NO;
+    }
     
     return self.input;
 }
