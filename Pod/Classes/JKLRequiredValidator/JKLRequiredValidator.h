@@ -12,6 +12,7 @@
 
 @property(nonatomic, copy, readonly) ObjectType input;
 
++ (instancetype)validatorWithInput:(NSObject *)input;
 - (instancetype)initWithInput:(ObjectType)input;
 
 @end

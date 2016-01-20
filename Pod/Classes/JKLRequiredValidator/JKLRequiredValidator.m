@@ -10,6 +10,11 @@
 
 @implementation JKLRequiredValidator
 
++ (instancetype)validatorWithInput:(NSObject *)input
+{
+    return [[self alloc] initWithInput:input];
+}
+
 - (instancetype)initWithInput:(NSObject *)input
 {
     self = [super init];
