@@ -16,9 +16,7 @@ SpecBegin(JKLRequiredValidator)
         
         beforeAll(^{
             validator = [JKLRequiredValidator instance].validator;
-        });
-
-        afterEach(^{
+            
             expect(validator).toNot.beNil;
             expect(validator).to.conformTo(@protocol(JKLValidator));
         });
