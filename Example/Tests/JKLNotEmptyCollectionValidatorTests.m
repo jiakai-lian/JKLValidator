@@ -44,6 +44,18 @@ describe(@"JKLNotEmptyCollectionValidator Tests", ^{
     it(@"should able to verify a not empty set", ^{
         expect([validator validateInput:[NSSet setWithObject:@1] error:nil]).to.equal(YES);
     });
+    
+    it(@"should able to verify a nil Object", ^{
+        expect([validator validateInput:nil error:nil]).to.equal(YES);
+    });
+    
+    it(@"should able to verify a not nil object", ^{
+        expect([validator validateInput:[[NSObject alloc] init] error:nil]).to.equal(YES);
+    });
+    
+    it(@"should able to verify a NSNull object", ^{
+        expect([validator validateInput:[NSNull null] error:nil]).to.equal(YES);
+    });
 });
 
 SpecEnd
