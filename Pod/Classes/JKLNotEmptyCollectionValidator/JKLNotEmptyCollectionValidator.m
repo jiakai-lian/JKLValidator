@@ -12,7 +12,7 @@
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
-    BOOL valid = NO;
+    BOOL valid = YES;
     NSString *failureReason = nil;
     
     if ([input respondsToSelector:@selector(count)]) {
