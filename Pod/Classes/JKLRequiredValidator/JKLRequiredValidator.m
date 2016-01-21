@@ -35,7 +35,7 @@
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
-    BOOL valid = NO;
+    BOOL valid;
     
     for(id<JKLValidator> subValidator in self.subValidators)
     {
