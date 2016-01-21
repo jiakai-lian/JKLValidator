@@ -29,7 +29,6 @@ describe(@"JKLNotEmptyCollectionValidator Tests", ^{
     it(@"should able to verify an empty array", ^{
         expect([validator validateInput:@[] error:&error]).to.equal(NO);
         expect(error).toNot.beNil;
-        NSLog(@"%@",error);
     });
     
     it(@"should able to verify a not empty array", ^{

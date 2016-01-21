@@ -13,6 +13,7 @@ SpecBegin(JKLNotNSNullValidator)
 describe(@"JKLNotNSNullValidator Tests", ^{
     
     __block id <JKLValidator> validator = nil;
+    __block NSError * error = nil;
     
     beforeAll(^{
         validator = [JKLNotNSNullValidator instance].validator;
@@ -21,16 +22,23 @@ describe(@"JKLNotNSNullValidator Tests", ^{
         expect(validator).to.conformTo(@protocol(JKLValidator));
     });
     
+    beforeEach(^{
+        error = nil;
+    });
+    
     it(@"should able to verify an NSNull object", ^{
-        expect([validator validateInput:[NSNull null] error:nil]).to.equal(NO);
+        expect([validator validateInput:[NSNull null] error:&error]).to.equal(NO);
+        expect(error).toNot.beNil;
     });
     
     it(@"should able to verify a not NSNull object", ^{
-        expect([validator validateInput:[[NSObject alloc] init] error:nil]).to.equal(YES);
+        expect([validator validateInput:[[NSObject alloc] init] error:&error]).to.equal(YES);
+        expect(error).to.beNil;
     });
     
     it(@"should able to verify a nil object (nil is not null)", ^{
-        expect([validator validateInput:nil error:nil]).to.equal(YES);
+        expect([validator validateInput:nil error:&error]).to.equal(YES);
+        expect(error).to.beNil;
     });
     
 });
