@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/JKLEmptyCollectionValidator/JKLEmptyCollectionValidator.h
