@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		3ECB0F991C4E55B900D91189 /* JKLRequiredValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0F981C4E55B900D91189 /* JKLRequiredValidatorTests.m */; };
 		3ECB0FA11C50F70800D91189 /* JKLNotEmptyCollectionValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0FA01C50F70800D91189 /* JKLNotEmptyCollectionValidatorTests.m */; };
-		3ECB0FA81C50FC2000D91189 /* JKLNilValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0FA71C50FC2000D91189 /* JKLNilValidatorTests.m */; };
-		3ECB0FAE1C50FEBB00D91189 /* JKLNSNullValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0FAD1C50FEBB00D91189 /* JKLNSNullValidator.m */; };
+		3ECB0FA81C50FC2000D91189 /* JKLNotNilValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0FA71C50FC2000D91189 /* JKLNotNilValidatorTests.m */; };
+		3ECB0FAE1C50FEBB00D91189 /* JKLNotNSNullValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0FAD1C50FEBB00D91189 /* JKLNotNSNullValidatorTests.m */; };
+		3ECB0FC01C5103B200D91189 /* JKLNotEmptyTrimmedStringValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECB0FBF1C5103B200D91189 /* JKLNotEmptyTrimmedStringValidatorTests.m */; };
 		51AB8B4755D37AFD827DEA14 /* libPods-JKLValidator_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB537D06D26844937DBFE2F /* libPods-JKLValidator_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -45,8 +46,9 @@
 		3C4C6A048655A95FDF95506D /* Pods-JKLValidator_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKLValidator_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKLValidator_Tests/Pods-JKLValidator_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3ECB0F981C4E55B900D91189 /* JKLRequiredValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLRequiredValidatorTests.m; sourceTree = "<group>"; };
 		3ECB0FA01C50F70800D91189 /* JKLNotEmptyCollectionValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLNotEmptyCollectionValidatorTests.m; sourceTree = "<group>"; };
-		3ECB0FA71C50FC2000D91189 /* JKLNilValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLNilValidatorTests.m; sourceTree = "<group>"; };
-		3ECB0FAD1C50FEBB00D91189 /* JKLNSNullValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLNSNullValidator.m; sourceTree = "<group>"; };
+		3ECB0FA71C50FC2000D91189 /* JKLNotNilValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLNotNilValidatorTests.m; sourceTree = "<group>"; };
+		3ECB0FAD1C50FEBB00D91189 /* JKLNotNSNullValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLNotNSNullValidatorTests.m; sourceTree = "<group>"; };
+		3ECB0FBF1C5103B200D91189 /* JKLNotEmptyTrimmedStringValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLNotEmptyTrimmedStringValidatorTests.m; sourceTree = "<group>"; };
 		44275636629C500768AE1AC6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JKLValidator_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKLValidator_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,8 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				3ECB0FA01C50F70800D91189 /* JKLNotEmptyCollectionValidatorTests.m */,
-				3ECB0FA71C50FC2000D91189 /* JKLNilValidatorTests.m */,
-				3ECB0FAD1C50FEBB00D91189 /* JKLNSNullValidator.m */,
+				3ECB0FBF1C5103B200D91189 /* JKLNotEmptyTrimmedStringValidatorTests.m */,
+				3ECB0FA71C50FC2000D91189 /* JKLNotNilValidatorTests.m */,
+				3ECB0FAD1C50FEBB00D91189 /* JKLNotNSNullValidatorTests.m */,
 				3ECB0F981C4E55B900D91189 /* JKLRequiredValidatorTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -379,8 +382,9 @@
 			files = (
 				3ECB0FA11C50F70800D91189 /* JKLNotEmptyCollectionValidatorTests.m in Sources */,
 				3ECB0F991C4E55B900D91189 /* JKLRequiredValidatorTests.m in Sources */,
-				3ECB0FAE1C50FEBB00D91189 /* JKLNSNullValidator.m in Sources */,
-				3ECB0FA81C50FC2000D91189 /* JKLNilValidatorTests.m in Sources */,
+				3ECB0FAE1C50FEBB00D91189 /* JKLNotNSNullValidatorTests.m in Sources */,
+				3ECB0FC01C5103B200D91189 /* JKLNotEmptyTrimmedStringValidatorTests.m in Sources */,
+				3ECB0FA81C50FC2000D91189 /* JKLNotNilValidatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  JKLNSNullValidator.m
+//  JKLNotNSNullValidatorTests.m
 //  JKLValidator
 //
 //  Created by jiakai lian on 21/01/2016.
