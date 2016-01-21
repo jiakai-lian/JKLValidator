@@ -1,24 +1,21 @@
 //
-//  JKLNSNullValidator.m
+//  JKLNotNilValidator.m
 //  Pods
 //
 //  Created by jiakai lian on 21/01/2016.
 //
 //
 
-#import "JKLNSNullValidator.h"
+#import "JKLNotNilValidator.h"
 
-@implementation JKLNSNullValidator
+@implementation JKLNotNilValidator
 
 - (BOOL)validateInput:(id)input error:(NSError *__autoreleasing *)outError {
-  BOOL valid = YES;
+  BOOL valid = input;
   NSString *failureReason = nil;
 
-  if ([input isEqual:[NSNull null]]) {
-    valid = NO;
-    failureReason =
-        NSLocalizedString(@"The input object is a NSNull object.", nil);
-
+  if (!valid) {
+    failureReason = NSLocalizedString(@"The input object is nil.", nil);
     if (outError) {
       *outError = [NSError
           errorWithDomain:JKLValidatorErrorDomain

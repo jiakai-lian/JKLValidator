@@ -6,16 +6,16 @@
 //  Copyright © 2016 jiakai lian. All rights reserved.
 //
 
-#import "JKLNSNullValidator.h"
+#import "JKLNotNSNullValidator.h"
 
-SpecBegin(JKLNSNullValidator)
+SpecBegin(JKLNotNSNullValidator)
 
-describe(@"JKLNSNullValidator Tests", ^{
+describe(@"JKLNotNSNullValidator Tests", ^{
     
     __block id <JKLValidator> validator = nil;
     
     beforeAll(^{
-        validator = [JKLNSNullValidator instance].validator;
+        validator = [JKLNotNSNullValidator instance].validator;
         
         expect(validator).toNot.beNil;
         expect(validator).to.conformTo(@protocol(JKLValidator));

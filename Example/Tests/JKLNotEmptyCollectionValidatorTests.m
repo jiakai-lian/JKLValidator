@@ -6,16 +6,16 @@
 //  Copyright © 2016 jiakai lian. All rights reserved.
 //
 
-#import "JKLEmptyCollectionValidator.h"
+#import "JKLNotEmptyCollectionValidator.h"
 
-SpecBegin(JKLEmptyCollectionValidator)
+SpecBegin(JKLNotEmptyCollectionValidator)
 
-describe(@"JKLEmptyCollectionValidator Tests", ^{
+describe(@"JKLNotEmptyCollectionValidator Tests", ^{
     
     __block id <JKLValidator> validator = nil;
     
     beforeAll(^{
-        validator = [JKLEmptyCollectionValidator instance].validator;
+        validator = [JKLNotEmptyCollectionValidator instance].validator;
         
         expect(validator).toNot.beNil;
         expect(validator).to.conformTo(@protocol(JKLValidator));

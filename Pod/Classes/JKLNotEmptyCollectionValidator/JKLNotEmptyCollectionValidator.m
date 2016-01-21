@@ -1,14 +1,14 @@
 //
-//  JKLEmptyCollectionValidator.m
+//  JKLNotEmptyCollectionValidator.m
 //  Pods
 //
 //  Created by jiakai lian on 21/01/2016.
 //
 //
 
-#import "JKLEmptyCollectionValidator.h"
+#import "JKLNotEmptyCollectionValidator.h"
 
-@implementation JKLEmptyCollectionValidator
+@implementation JKLNotEmptyCollectionValidator
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {

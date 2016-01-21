@@ -8,9 +8,9 @@
 
 #import "JKLRequiredValidator.h"
 
-#import "JKLEmptyCollectionValidator.h"
-#import "JKLNilValidator.h"
-#import "JKLNSNullValidator.h"
+#import "JKLNotEmptyCollectionValidator.h"
+#import "JKLNotNilValidator.h"
+#import "JKLNotNSNullValidator.h"
 
 @interface JKLRequiredValidator ()
 
@@ -36,7 +36,7 @@
     self = [super init];
     if(self)
     {
-        _subValidators = @[[JKLEmptyCollectionValidator instance].validator,[JKLNilValidator instance].validator,[JKLNSNullValidator instance].validator];
+        _subValidators = @[[JKLNotEmptyCollectionValidator instance].validator,[JKLNotNilValidator instance].validator,[JKLNotNSNullValidator instance].validator];
     }
     
     return self;

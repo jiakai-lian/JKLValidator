@@ -1,5 +1,5 @@
 //
-//  JKLNSNullValidator.h
+//  JKLNotEmptyCollectionValidator.h
 //  Pods
 //
 //  Created by jiakai lian on 21/01/2016.
@@ -8,6 +8,6 @@
 
 #import "JKLValidator.h"
 
-@interface JKLNSNullValidator : JKLValidator
+@interface JKLNotEmptyCollectionValidator : JKLValidator
 
 @end
