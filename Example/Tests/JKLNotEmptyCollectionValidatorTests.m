@@ -13,6 +13,7 @@ SpecBegin(JKLNotEmptyCollectionValidator)
 describe(@"JKLNotEmptyCollectionValidator Tests", ^{
     
     __block id <JKLValidator> validator = nil;
+    __block NSError * error = nil;
     
     beforeAll(^{
         validator = [JKLNotEmptyCollectionValidator instance].validator;
@@ -21,40 +22,54 @@ describe(@"JKLNotEmptyCollectionValidator Tests", ^{
         expect(validator).to.conformTo(@protocol(JKLValidator));
     });
     
+    beforeEach(^{
+        error = nil;
+    });
+    
     it(@"should able to verify an empty array", ^{
-        expect([validator validateInput:@[] error:nil]).to.equal(NO);
+        expect([validator validateInput:@[] error:&error]).to.equal(NO);
+        expect(error).toNot.beNil;
+        NSLog(@"%@",error);
     });
     
     it(@"should able to verify a not empty array", ^{
-        expect([validator validateInput:@[@1] error:nil]).to.equal(YES);
+        expect([validator validateInput:@[@1] error:&error]).to.equal(YES);
+        expect(error).to.beNil;
     });
     
     it(@"should able to verify an empty dictionary", ^{
-        expect([validator validateInput:@{} error:nil]).to.equal(NO);
+        expect([validator validateInput:@{} error:&error]).to.equal(NO);
+        expect(error).toNot.beNil;
     });
     
     it(@"should able to verify a not empty dictionary", ^{
-        expect([validator validateInput:@{@1 : @1} error:nil]).to.equal(YES);
+        expect([validator validateInput:@{@1 : @1} error:&error]).to.equal(YES);
+        expect(error).to.beNil;
     });
     
     it(@"should able to verify an empty set", ^{
-        expect([validator validateInput:[NSSet set] error:nil]).to.equal(NO);
+        expect([validator validateInput:[NSSet set] error:&error]).to.equal(NO);
+        expect(error).toNot.beNil;
     });
     
     it(@"should able to verify a not empty set", ^{
-        expect([validator validateInput:[NSSet setWithObject:@1] error:nil]).to.equal(YES);
+        expect([validator validateInput:[NSSet setWithObject:@1] error:&error]).to.equal(YES);
+        expect(error).to.beNil;
     });
     
     it(@"should able to verify a nil Object", ^{
-        expect([validator validateInput:nil error:nil]).to.equal(YES);
+        expect([validator validateInput:nil error:&error]).to.equal(YES);
+        expect(error).to.beNil;
     });
     
     it(@"should able to verify a not nil object", ^{
-        expect([validator validateInput:[[NSObject alloc] init] error:nil]).to.equal(YES);
+        expect([validator validateInput:[[NSObject alloc] init] error:&error]).to.equal(YES);
+        expect(error).to.beNil;
     });
     
     it(@"should able to verify a NSNull object", ^{
-        expect([validator validateInput:[NSNull null] error:nil]).to.equal(YES);
+        expect([validator validateInput:[NSNull null] error:&error]).to.equal(YES);
+        expect(error).to.beNil;
     });
 });
 
