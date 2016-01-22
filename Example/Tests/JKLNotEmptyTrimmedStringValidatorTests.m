@@ -12,14 +12,14 @@ SpecBegin(JKLNotEmptyTrimmedStringValidator)
 
 describe(@"JKLNotEmptyTrimmedStringValidator Tests", ^{
     
-    __block id <JKLValidator> validator = nil;
+    __block id <JKLValidable> validator = nil;
     __block NSError * error = nil;
     
     beforeAll(^{
         validator = [JKLNotEmptyTrimmedStringValidator instance].validator;
         
         expect(validator).toNot.beNil;
-        expect(validator).to.conformTo(@protocol(JKLValidator));
+        expect(validator).to.conformTo(@protocol(JKLValidable));
     });
     
     beforeEach(^{

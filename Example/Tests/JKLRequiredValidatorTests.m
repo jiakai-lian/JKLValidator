@@ -12,14 +12,14 @@ SpecBegin(JKLRequiredValidator)
 
     describe(@"JKLRequiredValidator Tests", ^{
 
-        __block id <JKLValidator> validator = nil;
+        __block id <JKLValidable> validator = nil;
         __block NSError * error = nil;
         
         beforeAll(^{
             validator = [JKLRequiredValidator instance].validator;
             
             expect(validator).toNot.beNil;
-            expect(validator).to.conformTo(@protocol(JKLValidator));
+            expect(validator).to.conformTo(@protocol(JKLValidable));
         });
         
         beforeEach(^{

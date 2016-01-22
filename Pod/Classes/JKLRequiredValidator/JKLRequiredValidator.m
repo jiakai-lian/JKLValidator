@@ -15,7 +15,7 @@
 
 @interface JKLRequiredValidator ()
 
-@property (nonatomic, strong) NSArray<id<JKLValidator>> * subValidators;
+@property (nonatomic, strong) NSArray<id<JKLValidable>> * subValidators;
 
 @end
 
@@ -37,7 +37,7 @@
                 error:(NSError *__autoreleasing *)outError {
     BOOL valid;
     
-    for(id<JKLValidator> subValidator in self.subValidators)
+    for(id<JKLValidable> subValidator in self.subValidators)
     {
         valid = [subValidator validateInput:input error:outError];
         

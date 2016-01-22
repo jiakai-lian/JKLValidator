@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, JKLValidatorErrorCode) {
 };
 
 
-@protocol JKLValidator <NSObject>
+@protocol JKLValidable <NSObject>
 
 @required
 
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger, JKLValidatorErrorCode) {
 
 @interface JKLValidator : NSObject
 
-@property(nonatomic, strong, readonly) id <JKLValidator> validator;
+@property(nonatomic, strong, readonly) id <JKLValidable> validator;
 
 + (instancetype)instance;
 

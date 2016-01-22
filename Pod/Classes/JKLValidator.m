@@ -10,7 +10,7 @@
 
 NSString * const JKLValidatorErrorDomain = @"JKLValidatorErrorDomain";
 
-@interface JKLValidator () <JKLValidator>
+@interface JKLValidator () <JKLValidable>
 
 @end
 
@@ -31,7 +31,7 @@ NSString * const JKLValidatorErrorDomain = @"JKLValidatorErrorDomain";
 }
 
 
-- (id <JKLValidator>)validator {
+- (id <JKLValidable>)validator {
     return self;
 }
 
