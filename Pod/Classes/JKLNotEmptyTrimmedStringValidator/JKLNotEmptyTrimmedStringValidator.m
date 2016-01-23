@@ -11,6 +11,7 @@
 #import "JKLValidator+NSError.h"
 #import "JKLNotNilValidator.h"
 #import "JKLIsStringValidator.h"
+#import "NSArray+JKLValidator.h"
 
 @interface JKLNotEmptyTrimmedStringValidator ()
 
@@ -24,8 +25,7 @@
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
-    BOOL valid = [self andValidateByValidators:self.subValidators
-                                         input:input
+    BOOL valid = [self.subValidators andValidateInput:input
                                          error:outError];
 
     if (valid) {

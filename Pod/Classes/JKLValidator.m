@@ -29,51 +29,6 @@
     return YES;
 }
 
-- (BOOL)andValidateByValidators:(NSArray<id <JKLValidable>> *)validators
-                          input:(id)input
-                          error:(NSError * __autoreleasing *)outError
-{
-    BOOL valid = YES;
-
-    if(validators)
-    {
-        for(id<JKLValidable> validator in validators)
-        {
-            valid = valid && [validator validateInput:input
-                                                error:outError];
-            if(!valid)
-            {
-                break;
-            }
-        }
-    }
-
-    return valid;
-}
-
-- (BOOL)orValidateByValidators:(NSArray<id <JKLValidable>> *)validators
-                         input:(id)input
-                         error:(NSError * __autoreleasing *)outError
-{
-    BOOL valid = NO;
-
-    if(validators)
-    {
-        for(id<JKLValidable> validator in validators)
-        {
-            valid = valid || [validator validateInput:input
-                                                error:outError];
-            if(valid)
-            {
-                break;
-            }
-        }
-    }
-
-    return valid;
-}
-
-
 - (id <JKLValidable>)validator {
     return self;
 }

@@ -11,6 +11,7 @@
 #import "JKLValidator+NSError.h"
 #import "JKLIsCollectionValidator.h"
 #import "JKLNotNilValidator.h"
+#import "NSArray+JKLValidator.h"
 
 @interface JKLNotEmptyCollectionValidator()
 
@@ -22,9 +23,8 @@
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
-    BOOL valid = [self andValidateByValidators:self.subValidators
-                                         input:input
-                                         error:outError];
+    BOOL valid = [self.subValidators andValidateInput:input
+                                                error:outError];
     
     if (valid) {
         valid =  [input count];
