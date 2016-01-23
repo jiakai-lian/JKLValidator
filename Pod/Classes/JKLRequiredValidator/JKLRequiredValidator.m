@@ -44,7 +44,7 @@
 
 - (NSArray *)subValidators {
     if (!_subValidators) {
-        _subValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validator,[JKLNotEmptyCollectionValidator instance].validator];
+        _subValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validable, [JKLNotEmptyCollectionValidator instance].validable];
     }
     return _subValidators;
 }

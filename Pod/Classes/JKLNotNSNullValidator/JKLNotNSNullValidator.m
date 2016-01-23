@@ -39,7 +39,7 @@
 
 - (id <JKLValidable>)notNilValidator {
     if (!_notNilValidator) {
-        _notNilValidator = [JKLNotNilValidator instance].validator;
+        _notNilValidator = [JKLNotNilValidator instance].validable;
     }
     return _notNilValidator;
 }

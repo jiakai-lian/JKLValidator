@@ -25,8 +25,8 @@
     BOOL valid = NO;
 
     if (self.count) {
-        for (id <JKLValidable> validator in self) {
-            valid = valid || [validator validateInput:input
+        for (id <JKLValidable> validable in self) {
+            valid = valid || [validable validateInput:input
                                                 error:outError];
             if (valid) {
                 *outError = nil;
@@ -43,8 +43,8 @@
     BOOL valid = YES;
 
     if (self.count) {
-        for (id <JKLValidable> validator in self) {
-            valid = valid && [validator validateInput:input
+        for (id <JKLValidable> validable in self) {
+            valid = valid && [validable validateInput:input
                                                 error:outError];
             if (!valid) {
                 break;

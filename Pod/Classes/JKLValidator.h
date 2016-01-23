@@ -19,7 +19,7 @@
 
 @interface JKLValidator : NSObject
 
-@property(nonatomic, weak, readonly) id <JKLValidable> validator;
+@property(nonatomic, weak, readonly) id <JKLValidable> validable;
 
 - (BOOL)andValidateByValidators:(NSArray<id <JKLValidable>> *)validators
                           input:(id)input

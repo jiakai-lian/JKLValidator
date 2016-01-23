@@ -48,8 +48,8 @@
 
 - (NSArray *)subValidators {
     if (!_subValidators) {
-        _subValidators = @[[JKLNotNilValidator instance].validator,
-                           [JKLIsStringValidator instance].validator];
+        _subValidators = @[[JKLNotNilValidator instance].validable,
+                           [JKLIsStringValidator instance].validable];
     }
     return _subValidators;
 }

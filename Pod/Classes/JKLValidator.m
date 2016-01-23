@@ -29,7 +29,7 @@
     return YES;
 }
 
-- (id <JKLValidable>)validator {
+- (id <JKLValidable>)validable {
     return self;
 }
 
