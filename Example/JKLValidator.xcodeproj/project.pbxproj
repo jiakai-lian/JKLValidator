@@ -28,6 +28,7 @@
 		8512D3A01C53A2BB00F88293 /* JKLIsStringValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8512D39F1C53A2BB00F88293 /* JKLIsStringValidatorTests.m */; };
 		8512D3A21C53A3E400F88293 /* JKLIsCollectionValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8512D3A11C53A3E400F88293 /* JKLIsCollectionValidatorTests.m */; };
 		8512D3A41C53A88600F88293 /* JKLValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8512D3A31C53A88600F88293 /* JKLValidatorTests.m */; };
+		8512D3A71C5441D000F88293 /* JKLStringRegularExpressionValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8512D3A61C5441D000F88293 /* JKLStringRegularExpressionValidatorTests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		F8CEC171D94D07EAAEFE4212 /* libPods-JKLValidator_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4DE679685B87DE783013DA /* libPods-JKLValidator_Example.a */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		8512D39F1C53A2BB00F88293 /* JKLIsStringValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLIsStringValidatorTests.m; sourceTree = "<group>"; };
 		8512D3A11C53A3E400F88293 /* JKLIsCollectionValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLIsCollectionValidatorTests.m; sourceTree = "<group>"; };
 		8512D3A31C53A88600F88293 /* JKLValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLValidatorTests.m; sourceTree = "<group>"; };
+		8512D3A61C5441D000F88293 /* JKLStringRegularExpressionValidatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLStringRegularExpressionValidatorTests.m; sourceTree = "<group>"; };
 		861F89C7AFA6FF84EF00474E /* Pods-JKLValidator_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKLValidator_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKLValidator_Example/Pods-JKLValidator_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9A4DE679685B87DE783013DA /* libPods-JKLValidator_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKLValidator_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 				3ECB0FA71C50FC2000D91189 /* JKLNotNilValidatorTests.m */,
 				3ECB0FAD1C50FEBB00D91189 /* JKLNotNSNullValidatorTests.m */,
 				3ECB0F981C4E55B900D91189 /* JKLRequiredValidatorTests.m */,
+				8512D3A61C5441D000F88293 /* JKLStringRegularExpressionValidatorTests.m */,
 				8512D3A31C53A88600F88293 /* JKLValidatorTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -428,6 +431,7 @@
 				3ECB0FAE1C50FEBB00D91189 /* JKLNotNSNullValidatorTests.m in Sources */,
 				3ECB0FC01C5103B200D91189 /* JKLNotEmptyTrimmedStringValidatorTests.m in Sources */,
 				3ECB0FA81C50FC2000D91189 /* JKLNotNilValidatorTests.m in Sources */,
+				8512D3A71C5441D000F88293 /* JKLStringRegularExpressionValidatorTests.m in Sources */,
 				8512D3A01C53A2BB00F88293 /* JKLIsStringValidatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,9 @@
 FOUNDATION_EXTERN NSString * const JKLValidatorErrorDomain;
 
 typedef NS_ENUM(NSUInteger, JKLValidatorErrorCode) {
-    JKLValidatorErrorCodeInvalidInput = 0,
+    JKLValidatorErrorCodeUnknownError = 0,
+    JKLValidatorErrorCodeInvalidInput = 1,
+    JKLValidatorErrorCodeNilParameter = 2,
 };
 
 
