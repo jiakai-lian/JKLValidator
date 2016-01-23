@@ -12,6 +12,7 @@
 #import "JKLNotEmptyCollectionValidator.h"
 #import "JKLNotNilValidator.h"
 #import "JKLNotNSNullValidator.h"
+#import "NSArray+JKLValidator.h"
 
 @interface JKLRequiredValidator ()
 
@@ -21,21 +22,12 @@
 
 @implementation JKLRequiredValidator
 
-- (instancetype)init{
-    self = [super init];
-    if(self)
-    {
-//        _subValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validator,[JKLNotEmptyCollectionValidator instance].validator,[JKLNotNilValidator instance].validator,[JKLNotNSNullValidator instance].validator];
-    }
-    
-    return self;
-}
-
 #pragma mark - JKLValidator
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
-    BOOL valid = YES;
+    BOOL valid = [self.subValidators orValidateInput:input
+                                                error:outError];
     
 //    for(id<JKLValidable> subValidator in self.subValidators)
 //    {
@@ -52,7 +44,7 @@
 
 - (NSArray *)subValidators {
     if (!_subValidators) {
-        _subValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validator,[JKLNotEmptyCollectionValidator instance].validator,[JKLNotNilValidator instance].validator,[JKLNotNSNullValidator instance].validator];
+        _subValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validator,[JKLNotEmptyCollectionValidator instance].validator];
     }
     return _subValidators;
 }

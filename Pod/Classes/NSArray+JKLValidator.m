@@ -29,6 +29,7 @@
             valid = valid || [validator validateInput:input
                                                 error:outError];
             if (valid) {
+                *outError = nil;
                 break;
             }
         }
