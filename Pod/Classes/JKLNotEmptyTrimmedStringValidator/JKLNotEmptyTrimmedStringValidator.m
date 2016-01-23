@@ -15,8 +15,6 @@
 
 @interface JKLNotEmptyTrimmedStringValidator ()
 
-@property(nonatomic, strong) JKLNotNilValidator *notNilValidator;
-
 @property(nonatomic, strong) NSArray<id <JKLValidable>> *subValidators;
 
 @end
