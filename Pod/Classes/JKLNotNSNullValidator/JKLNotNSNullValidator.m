@@ -8,26 +8,40 @@
 
 #import "JKLNotNSNullValidator.h"
 
+#import "JKLValidator+NSError.h"
+#import "JKLNotNilValidator.h"
+
+@interface JKLNotNSNullValidator ()
+
+@property(nonatomic, strong) id <JKLValidable> notNilValidator;
+@end
+
 @implementation JKLNotNSNullValidator
 
-- (BOOL)validateInput:(id)input error:(NSError *__autoreleasing *)outError {
-  BOOL valid = YES;
-  NSString *failureReason = nil;
+- (BOOL)validateInput:(id)input
+                error:(NSError *__autoreleasing *)outError {
+    BOOL valid = [self.notNilValidator validateInput:input
+                                               error:outError];
 
-  if ([input isEqual:[NSNull null]]) {
-    valid = NO;
-    failureReason =
-        NSLocalizedString(@"The input object is a NSNull object.", nil);
+    valid = valid && ![input isEqual:[NSNull null]];
 
-    if (outError) {
-      *outError = [NSError
-          errorWithDomain:JKLValidatorErrorDomain
-                     code:JKLValidatorErrorCodeInvalidInput
-                 userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}];
+    if (!valid) {
+        NSString *failureReason =
+                         NSLocalizedString(@"The input object is a NSNull object.", nil);
+
+        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
+                         userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}
+                            error:outError];
     }
-  }
 
-  return valid;
+    return valid;
+}
+
+- (id <JKLValidable>)notNilValidator {
+    if (!_notNilValidator) {
+        _notNilValidator = [JKLNotNilValidator instance].validator;
+    }
+    return _notNilValidator;
 }
 
 @end

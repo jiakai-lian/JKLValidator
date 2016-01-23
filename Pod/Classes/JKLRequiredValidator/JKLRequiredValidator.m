@@ -25,7 +25,7 @@
     self = [super init];
     if(self)
     {
-        _subValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validator,[JKLNotEmptyCollectionValidator instance].validator,[JKLNotNilValidator instance].validator,[JKLNotNSNullValidator instance].validator];
+//        _subValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validator,[JKLNotEmptyCollectionValidator instance].validator,[JKLNotNilValidator instance].validator,[JKLNotNSNullValidator instance].validator];
     }
     
     return self;
@@ -35,19 +35,26 @@
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
-    BOOL valid;
+    BOOL valid = YES;
     
-    for(id<JKLValidable> subValidator in self.subValidators)
-    {
-        valid = [subValidator validateInput:input error:outError];
-        
-        if(!valid)
-        {
-            break;
-        }
-    }
+//    for(id<JKLValidable> subValidator in self.subValidators)
+//    {
+//        valid = valid && [subValidator validateInput:input error:outError];
+//        
+//        if(!valid)
+//        {
+//            break;
+//        }
+//    }
 
     return valid;
+}
+
+- (NSArray *)subValidators {
+    if (!_subValidators) {
+        _subValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validator,[JKLNotEmptyCollectionValidator instance].validator,[JKLNotNilValidator instance].validator,[JKLNotNSNullValidator instance].validator];
+    }
+    return _subValidators;
 }
 
 @end

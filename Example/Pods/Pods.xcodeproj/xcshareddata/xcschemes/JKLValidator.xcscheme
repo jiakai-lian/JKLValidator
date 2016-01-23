@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "89971C4E38B239B6D1DAE74787A53E47"
+               BlueprintIdentifier = "BDC2403F5AA81C9421D082B4C28AF138"
                BlueprintName = "JKLValidator"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libJKLValidator.a">

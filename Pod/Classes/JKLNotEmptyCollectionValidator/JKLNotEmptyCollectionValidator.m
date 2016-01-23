@@ -8,31 +8,44 @@
 
 #import "JKLNotEmptyCollectionValidator.h"
 
+#import "JKLValidator+NSError.h"
+#import "JKLIsCollectionValidator.h"
+#import "JKLNotNilValidator.h"
+
+@interface JKLNotEmptyCollectionValidator()
+
+@property(nonatomic, strong) NSArray<id <JKLValidable>> *subValidators;
+
+@end
+
 @implementation JKLNotEmptyCollectionValidator
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
-    BOOL valid = YES;
-    NSString *failureReason = nil;
+    BOOL valid = [self andValidateByValidators:self.subValidators
+                                         input:input
+                                         error:outError];
     
-    if ([input respondsToSelector:@selector(count)]) {
-        valid = [input count];
-        
+    if (valid) {
+        valid =  [input count];
         if(!valid)
         {
-            failureReason= NSLocalizedString(@"The input collection has no items.", nil);
-        }
-    }
-    
-    if (!valid) {
-        if (outError) {
-            *outError = [NSError errorWithDomain:JKLValidatorErrorDomain
-                                            code:JKLValidatorErrorCodeInvalidInput
-                                        userInfo:@{NSLocalizedFailureReasonErrorKey:failureReason}];
+        NSString *failureReason= NSLocalizedString(@"The input collection has no items.", nil);
+        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
+                         userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}
+                            error:outError];
         }
     }
     
     return valid;
+}
+
+- (NSArray *)subValidators {
+    if (!_subValidators) {
+        _subValidators = @[[JKLNotNilValidator instance].validator,
+                           [JKLIsCollectionValidator instance].validator];
+    }
+    return _subValidators;
 }
 
 @end

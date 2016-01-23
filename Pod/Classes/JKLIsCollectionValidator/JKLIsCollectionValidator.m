@@ -1,23 +1,23 @@
 //
-//  JKLNotNilValidator.m
-//  Pods
-//
-//  Created by jiakai lian on 21/01/2016.
-//
+// Created by Jacky on 23/01/2016.
 //
 
-#import "JKLNotNilValidator.h"
+#import "JKLIsCollectionValidator.h"
 
 #import "JKLValidator+NSError.h"
 
-@implementation JKLNotNilValidator
+@interface JKLIsCollectionValidator ()
+
+@end
+
+@implementation JKLIsCollectionValidator
 
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
-    BOOL     valid          = (BOOL)input;
+    BOOL     valid          = [input respondsToSelector:@selector(count)];
 
     if (!valid) {
-        NSString * failureReason = NSLocalizedString(@"The input object is nil.", nil);
+        NSString * failureReason = NSLocalizedString(@"The input object is not a collection.", nil);
         [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
                          userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}
                             error:outError];

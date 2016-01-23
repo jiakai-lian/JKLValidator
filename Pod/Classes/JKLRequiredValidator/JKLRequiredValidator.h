@@ -7,6 +7,7 @@
 //
 
 #import "JKLValidator.h"
+#import "JKLValidator+NSError.h"
 
 @interface JKLRequiredValidator<ObjectType: NSObject *> : JKLValidator
 

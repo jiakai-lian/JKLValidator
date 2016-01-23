@@ -6,14 +6,7 @@
 //
 //
 
-#import <UIKit/UIKit.h>
-
-UIKIT_EXTERN NSString * const JKLValidatorErrorDomain;
-
-typedef NS_ENUM(NSUInteger, JKLValidatorErrorCode) {
-    JKLValidatorErrorCodeInvalidInput = 0,
-};
-
+#import <Foundation/Foundation.h>
 
 @protocol JKLValidable <NSObject>
 
@@ -26,7 +19,15 @@ typedef NS_ENUM(NSUInteger, JKLValidatorErrorCode) {
 
 @interface JKLValidator : NSObject
 
-@property(nonatomic, strong, readonly) id <JKLValidable> validator;
+@property(nonatomic, weak, readonly) id <JKLValidable> validator;
+
+- (BOOL)andValidateByValidators:(NSArray<id <JKLValidable>> *)validators
+                          input:(id)input
+                          error:(NSError * __autoreleasing *)outError;
+- (BOOL)orValidateByValidators:(NSArray<id <JKLValidable>> *)validators
+                         input:(id)input
+                         error:(NSError * __autoreleasing *)outError;
+
 
 + (instancetype)instance;
 

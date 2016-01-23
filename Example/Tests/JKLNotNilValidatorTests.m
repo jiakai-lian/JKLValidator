@@ -18,7 +18,7 @@ describe(@"JKLNilValidator Tests", ^{
     beforeAll(^{
         validator = [JKLNotNilValidator instance].validator;
         
-        expect(validator).toNot.beNil;
+        expect(validator).toNot.beNil();
         expect(validator).to.conformTo(@protocol(JKLValidable));
     });
     
@@ -28,17 +28,17 @@ describe(@"JKLNilValidator Tests", ^{
     
     it(@"should able to verify an nil object", ^{
         expect([validator validateInput:nil error:&error]).to.equal(NO);
-        expect(error).toNot.beNil;
+        expect(error).toNot.beNil();
     });
     
     it(@"should able to verify a not nil object", ^{
         expect([validator validateInput:[[NSObject alloc] init] error:nil]).to.equal(YES);
-        expect(error).to.beNil;
+        expect(error).to.beNil();
     });
     
     it(@"should able to verify a not NSNull object(NSNull is not nil)", ^{
         expect([validator validateInput:[[NSObject alloc] init] error:nil]).to.equal(YES);
-        expect(error).to.beNil;
+        expect(error).to.beNil();
     });
 
 });
