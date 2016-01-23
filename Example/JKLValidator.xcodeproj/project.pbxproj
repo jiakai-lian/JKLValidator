@@ -168,14 +168,14 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8512D3A11C53A3E400F88293 /* JKLIsCollectionValidatorTests.m */,
+				8512D39F1C53A2BB00F88293 /* JKLIsStringValidatorTests.m */,
 				3ECB0FA01C50F70800D91189 /* JKLNotEmptyCollectionValidatorTests.m */,
 				3ECB0FBF1C5103B200D91189 /* JKLNotEmptyTrimmedStringValidatorTests.m */,
 				3ECB0FA71C50FC2000D91189 /* JKLNotNilValidatorTests.m */,
 				3ECB0FAD1C50FEBB00D91189 /* JKLNotNSNullValidatorTests.m */,
 				3ECB0F981C4E55B900D91189 /* JKLRequiredValidatorTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
-				8512D39F1C53A2BB00F88293 /* JKLIsStringValidatorTests.m */,
-				8512D3A11C53A3E400F88293 /* JKLIsCollectionValidatorTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
