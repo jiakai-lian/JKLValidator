@@ -4,6 +4,8 @@
 
 #import <JKLValidator/JKLValidator.h>
 
+FOUNDATION_EXTERN NSString * const JKLValidatorErrorDomain;
+
 typedef NS_ENUM(NSUInteger, JKLValidatorErrorCode) {
     JKLValidatorErrorCodeInvalidInput = 0,
 };
