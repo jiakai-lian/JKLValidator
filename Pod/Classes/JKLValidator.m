@@ -20,10 +20,6 @@
     return [[self alloc]init];
 }
 
-//- (BOOL)validateWithError:(NSError **)error {
-//    return YES;
-//}
-
 - (BOOL)validateInput:(id)input error:(NSError * __autoreleasing *)outError
 {
     return YES;
