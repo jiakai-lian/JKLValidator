@@ -86,7 +86,7 @@
 - (NSArray *)emailValidators {
     if (!_emailValidators) {
         _emailValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validable, [JKLStringRegularExpressionValidator instanceWithRegularExpression:
-                [NSRegularExpression regularExpressionWithPattern:@"\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,6}"
+                [NSRegularExpression regularExpressionWithPattern:@"[a-z0-9_]+@[a-z0-9_]+?\\.[a-z0-9]{2,6}"
                                                           options:NSRegularExpressionCaseInsensitive
                                                             error:nil]].validable
         ];
