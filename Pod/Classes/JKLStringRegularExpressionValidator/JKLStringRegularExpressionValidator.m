@@ -5,7 +5,7 @@
 #import "JKLStringRegularExpressionValidator.h"
 
 #import "NSArray+JKLValidator.h"
-#import "JKLValidator+NSError.h"
+#import "NSError+JKLValidator.h"
 #import "JKLIsStringValidator.h"
 
 @interface JKLStringRegularExpressionValidator ()
@@ -37,10 +37,11 @@
 
     if (valid && !self.regex) {
         valid = NO;
-        [self getErrorByErrorCode:JKLValidatorErrorCodeNilParameter
-                         userInfo:@{NSLocalizedFailureReasonErrorKey :
-                                    NSLocalizedString(@"The regular expression is not set", nil)}
-                            error:outError];
+        [NSError getErrorByErrorDomain:JKLValidatorErrorDomain
+                          errorCode:(NSInteger)JKLValidatorErrorCodeNilParameter
+                           userInfo:@{NSLocalizedFailureReasonErrorKey :
+                                          NSLocalizedString(@"The regular expression is not set", nil)}
+                                 error:outError];
     }
 
     NSString *inputString = (NSString *) input;
@@ -49,10 +50,11 @@
                                          options:0
                                            range:NSMakeRange(0, inputString.length)]) {
         valid = NO;
-        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
-                         userInfo:@{NSLocalizedFailureReasonErrorKey :
-                                    NSLocalizedString(@"The input object doesn't match the given regular expression", nil)}
-                            error:outError];
+        [NSError getErrorByErrorDomain:JKLValidatorErrorDomain
+                             errorCode:(NSInteger)JKLValidatorErrorCodeInvalidInput
+                              userInfo:@{NSLocalizedFailureReasonErrorKey :
+                                             NSLocalizedString(@"The input object doesn't match the given regular expression", nil)}
+                                 error:outError];
     }
 
     return valid;

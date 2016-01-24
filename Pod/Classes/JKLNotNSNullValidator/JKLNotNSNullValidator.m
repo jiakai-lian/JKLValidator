@@ -9,7 +9,7 @@
 #import "JKLNotNSNullValidator.h"
 
 #import "JKLNotNilValidator.h"
-#import "JKLValidator+NSError.h"
+#import "NSError+JKLValidator.h"
 
 @interface JKLNotNSNullValidator ()
 
@@ -29,9 +29,11 @@
         NSString *failureReason =
                          NSLocalizedString(@"The input object is a NSNull object.", nil);
 
-        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
-                         userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}
-                            error:outError];
+        [NSError getErrorByErrorDomain:JKLValidatorErrorDomain
+                             errorCode:(NSInteger)JKLValidatorErrorCodeInvalidInput
+                              userInfo:@{NSLocalizedFailureReasonErrorKey :
+                                             failureReason}
+                                 error:outError];
     }
 
     return valid;

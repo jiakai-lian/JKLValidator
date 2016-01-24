@@ -10,7 +10,7 @@
 
 #import "JKLIsStringValidator.h"
 #import "JKLNotNilValidator.h"
-#import "JKLValidator+NSError.h"
+#import "NSError+JKLValidator.h"
 #import "NSArray+JKLValidator.h"
 
 @interface JKLNotEmptyTrimmedStringValidator ()
@@ -32,10 +32,11 @@
             .length) {
         valid = NO;
 
-        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
-                         userInfo:@{NSLocalizedFailureReasonErrorKey :
-                                    NSLocalizedString(@"The input string is empty after trimmed.", nil)}
-                            error:outError];
+        [NSError getErrorByErrorDomain:JKLValidatorErrorDomain
+                             errorCode:(NSInteger)JKLValidatorErrorCodeInvalidInput
+                              userInfo:@{NSLocalizedFailureReasonErrorKey :
+                                             NSLocalizedString(@"The input string is empty after trimmed.", nil)}
+                                 error:outError];
     }
 
     return valid;

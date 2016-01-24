@@ -8,7 +8,7 @@
 
 #import "JKLNotNilValidator.h"
 
-#import "JKLValidator+NSError.h"
+#import "NSError+JKLValidator.h"
 
 @implementation JKLNotNilValidator
 
@@ -18,9 +18,11 @@
 
     if (!valid) {
         NSString * failureReason = NSLocalizedString(@"The input object is nil.", nil);
-        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
-                         userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}
-                            error:outError];
+        [NSError getErrorByErrorDomain:JKLValidatorErrorDomain
+                             errorCode:(NSInteger)JKLValidatorErrorCodeInvalidInput
+                              userInfo:@{NSLocalizedFailureReasonErrorKey :
+                                             failureReason}
+                                 error:outError];
     }
 
     return valid;

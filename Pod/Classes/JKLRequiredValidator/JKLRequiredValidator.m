@@ -13,6 +13,7 @@
 #import "JKLNotNilValidator.h"
 #import "JKLNotNSNullValidator.h"
 #import "NSArray+JKLValidator.h"
+#import "NSError+JKLValidator.h"
 
 @interface JKLRequiredValidator ()
 

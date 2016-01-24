@@ -7,7 +7,7 @@
 //
 
 #import <JKLValidator.h>
-#import <JKLValidator+NSError.h>
+#import <NSError+JKLValidator.h>
 
 SpecBegin(JKLValidator)
 
@@ -47,16 +47,16 @@ describe(@"JKLValidator Tests", ^{
     
 });
 
-describe(@"JKLValidator+NSError Tests", ^{
+describe(@"NSError+JKLValidator Tests", ^{
     
-    __block JKLValidator *validator = nil;
+//    __block JKLValidator *validator = nil;
     __block NSError * error = nil;
     
     beforeAll(^{
-        validator = [JKLValidator instance];
-        
-        expect(validator).toNot.beNil();
-        expect(validator.validable).to.conformTo(@protocol(JKLValidable));
+//        validator = [JKLValidator instance];
+//        
+//        expect(validator).toNot.beNil();
+//        expect(validator.validable).to.conformTo(@protocol(JKLValidable));
     });
     
     beforeEach(^{
@@ -64,13 +64,16 @@ describe(@"JKLValidator+NSError Tests", ^{
     });
     
     it(@"should able to  construct a NSError object", ^{
+        NSString * domain = @"NSErrorDomain";
         JKLValidatorErrorCode code = 10;
         NSDictionary * userInfo = @{};
-        [validator getErrorByErrorCode:code userInfo:userInfo error:&error];
+        
+        [NSError getErrorByErrorDomain:domain errorCode:code userInfo:userInfo error:&error];
+        
         expect(error).toNot.beNil();
+        expect(error.domain).to.equal(domain);
         expect(error.userInfo).to.equal(userInfo);
         expect(error.code).to.equal(code);
-        expect(error.domain).to.equal(JKLValidatorErrorDomain);
     });
 
     

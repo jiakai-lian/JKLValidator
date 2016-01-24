@@ -10,7 +10,7 @@
 
 #import "JKLIsCollectionValidator.h"
 #import "JKLNotNilValidator.h"
-#import "JKLValidator+NSError.h"
+#import "NSError+JKLValidator.h"
 #import "NSArray+JKLValidator.h"
 
 @interface JKLNotEmptyCollectionValidator ()
@@ -29,9 +29,11 @@
     if (valid && ![input count]) {
         valid = NO;
         NSString *failureReason = NSLocalizedString(@"The input collection has no items.", nil);
-        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
-                         userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}
-                            error:outError];
+        [NSError getErrorByErrorDomain:JKLValidatorErrorDomain
+                             errorCode:(NSInteger)JKLValidatorErrorCodeInvalidInput
+                              userInfo:@{NSLocalizedFailureReasonErrorKey :
+                                             failureReason}
+                                 error:outError];
     }
 
     return valid;

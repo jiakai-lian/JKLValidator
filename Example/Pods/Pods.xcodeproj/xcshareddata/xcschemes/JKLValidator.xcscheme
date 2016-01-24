@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "54AFBC8C3D988CD78E51B459728BA74F"
-               BlueprintName = "JKLValidator"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libJKLValidator.a">
+               BuildableIdentifier = 'primary'
+               BlueprintIdentifier = 'F19C2E7F8BF78C7CAFB8BE94'
+               BlueprintName = 'JKLValidator'
+               ReferencedContainer = 'container:Pods.xcodeproj'
+               BuildableName = 'libJKLValidator.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

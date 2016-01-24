@@ -4,7 +4,7 @@
 
 #import "JKLIsCollectionValidator.h"
 
-#import "JKLValidator+NSError.h"
+#import "NSError+JKLValidator.h"
 
 @interface JKLIsCollectionValidator ()
 
@@ -18,10 +18,11 @@
 
     if (!valid) {
         NSString * failureReason = NSLocalizedString(@"The input object is not a collection.", nil);
-        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
-                         userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}
-                            error:outError];
-    }
+        [NSError getErrorByErrorDomain:JKLValidatorErrorDomain
+                             errorCode:(NSInteger)JKLValidatorErrorCodeInvalidInput
+                              userInfo:@{NSLocalizedFailureReasonErrorKey :
+                                             failureReason}
+                                 error:outError];    }
 
     return valid;
 }

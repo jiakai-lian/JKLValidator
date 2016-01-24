@@ -4,7 +4,7 @@
 
 #import "JKLIsStringValidator.h"
 
-#import "JKLValidator+NSError.h"
+#import "NSError+JKLValidator.h"
 
 
 @interface JKLIsStringValidator ()
@@ -20,9 +20,10 @@
 
     if(!valid)
     {
-        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
-                         userInfo:@{NSLocalizedFailureReasonErrorKey:@"The input is not a string object"}
-                            error:outError];
+        [NSError getErrorByErrorDomain:JKLValidatorErrorDomain
+                             errorCode:JKLValidatorErrorCodeInvalidInput
+                              userInfo:@{NSLocalizedFailureReasonErrorKey:NSLocalizedString(@"The input is not a string object", nil)}
+                                 error:outError];
     }
 
     return valid;

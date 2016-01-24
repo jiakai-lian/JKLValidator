@@ -1,18 +1,23 @@
 //
-// Created by Jacky on 23/01/2016.
+//  NSError+JKLValidator.m
+//  Pods
+//
+//  Created by Jacky on 25/01/2016.
+//
 //
 
-#import "JKLValidator+NSError.h"
+#import "NSError+JKLValidator.h"
 
 NSString * const JKLValidatorErrorDomain = @"JKLValidatorErrorDomain";
 
-@implementation JKLValidator (NSError)
+@implementation NSError (JKLValidator)
 
-- (void)getErrorByErrorCode:(JKLValidatorErrorCode)code
++ (void)getErrorByErrorDomain:(NSString *)domain
+                    errorCode:(NSInteger)code
                    userInfo:(NSDictionary *)userInfo
                       error:(NSError *__autoreleasing *)outError {
     if (outError) {
-        *outError = [NSError errorWithDomain:JKLValidatorErrorDomain
+        *outError = [NSError errorWithDomain:domain
                                         code:code
                                     userInfo:userInfo];
     }
