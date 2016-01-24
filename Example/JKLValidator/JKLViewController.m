@@ -44,14 +44,14 @@
     [self updateTextField:sender
              ByValidators:self.emailValidators];
     
-    [self updateUIByValidation:[self.emailValidators andValidateInput:sender.text error:nil] && [self.passwordValidators andValidateInput:sender.text error:nil]];
+    [self updateUIByValidation:[self.emailValidators andValidateInput:self.textFieldEmail.text error:nil] && [self.passwordValidators andValidateInput:self.textFieldPassword.text error:nil]];
 }
 
 - (IBAction)passwordTextFieldDidEndEditing:(UITextField *)sender {
     [self updateTextField:sender
              ByValidators:self.passwordValidators];
     
-    [self updateUIByValidation:[self.emailValidators andValidateInput:sender.text error:nil] && [self.passwordValidators andValidateInput:sender.text error:nil]];
+    [self updateUIByValidation:[self.emailValidators andValidateInput:self.textFieldEmail.text error:nil] && [self.passwordValidators andValidateInput:self.textFieldPassword.text error:nil]];
 }
 
 - (IBAction)tapSignUpButton:(id)sender {

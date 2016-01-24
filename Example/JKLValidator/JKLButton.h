@@ -10,7 +10,7 @@
 
 @interface JKLButton : UIButton
 
-@property(nonatomic, copy, readonly) UIColor *jkl_backgroundColorWhenEnable;
+@property(nonatomic, copy) UIColor *jkl_backgroundColorWhenEnable;
 @property(nonatomic, copy) UIColor *jkl_backgroundColorWhenDisable;
 
 - (void)jkl_enabled:(BOOL)enabled;

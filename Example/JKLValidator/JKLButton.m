@@ -9,7 +9,6 @@
 #import "JKLButton.h"
 
 @interface JKLButton()
-@property(nonatomic, copy, readwrite) UIColor *jkl_backgroundColorWhenEnable;
 
 @end
 
@@ -40,11 +39,6 @@
 {
     self.jkl_backgroundColorWhenEnable = [self.backgroundColor copy];
     self.jkl_backgroundColorWhenDisable = [UIColor lightGrayColor];
-}
-
-- (void)setBackgroundColor:(UIColor *)backgroundColor {
-    [super setBackgroundColor:backgroundColor];
-    self.jkl_backgroundColorWhenEnable = backgroundColor;
 }
 
 - (void)jkl_enabled:(BOOL)enabled
