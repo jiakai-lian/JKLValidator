@@ -96,7 +96,10 @@
 
 - (NSArray *)passwordValidators {
     if (!_passwordValidators) {
-        _passwordValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validable];
+        _passwordValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validable, [JKLStringRegularExpressionValidator instanceWithRegularExpression:
+                [NSRegularExpression regularExpressionWithPattern:@"^\\S{8,64}$"
+                                                          options:NSRegularExpressionCaseInsensitive
+                                                            error:nil]].validable];
     }
     return _passwordValidators;
 }
