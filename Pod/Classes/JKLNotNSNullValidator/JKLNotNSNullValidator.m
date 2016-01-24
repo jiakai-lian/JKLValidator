@@ -8,8 +8,8 @@
 
 #import "JKLNotNSNullValidator.h"
 
-#import "JKLValidator+NSError.h"
 #import "JKLNotNilValidator.h"
+#import "JKLValidator+NSError.h"
 
 @interface JKLNotNSNullValidator ()
 

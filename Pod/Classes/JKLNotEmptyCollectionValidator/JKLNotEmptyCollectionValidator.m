@@ -8,9 +8,9 @@
 
 #import "JKLNotEmptyCollectionValidator.h"
 
-#import "JKLValidator+NSError.h"
 #import "JKLIsCollectionValidator.h"
 #import "JKLNotNilValidator.h"
+#import "JKLValidator+NSError.h"
 #import "NSArray+JKLValidator.h"
 
 @interface JKLNotEmptyCollectionValidator ()

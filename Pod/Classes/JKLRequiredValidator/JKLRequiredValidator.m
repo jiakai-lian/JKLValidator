@@ -8,8 +8,8 @@
 
 #import "JKLRequiredValidator.h"
 
-#import "JKLNotEmptyTrimmedStringValidator.h"
 #import "JKLNotEmptyCollectionValidator.h"
+#import "JKLNotEmptyTrimmedStringValidator.h"
 #import "JKLNotNilValidator.h"
 #import "JKLNotNSNullValidator.h"
 #import "NSArray+JKLValidator.h"

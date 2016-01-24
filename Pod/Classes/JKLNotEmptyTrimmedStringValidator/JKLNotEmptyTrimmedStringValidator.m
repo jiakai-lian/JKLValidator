@@ -8,9 +8,9 @@
 
 #import "JKLNotEmptyTrimmedStringValidator.h"
 
-#import "JKLValidator+NSError.h"
-#import "JKLNotNilValidator.h"
 #import "JKLIsStringValidator.h"
+#import "JKLNotNilValidator.h"
+#import "JKLValidator+NSError.h"
 #import "NSArray+JKLValidator.h"
 
 @interface JKLNotEmptyTrimmedStringValidator ()
