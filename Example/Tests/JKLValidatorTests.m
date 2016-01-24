@@ -11,7 +11,7 @@
 
 SpecBegin(JKLValidator)
 
-describe(@"JKLIsCollectionValidator Tests", ^{
+describe(@"JKLValidator Tests", ^{
     
     __block id <JKLValidable> validable = nil;
     __block NSError * error = nil;
@@ -47,7 +47,7 @@ describe(@"JKLIsCollectionValidator Tests", ^{
     
 });
 
-describe(@"JKLIsCollectionValidator+NSError Tests", ^{
+describe(@"JKLValidator+NSError Tests", ^{
     
     __block JKLValidator *validator = nil;
     __block NSError * error = nil;
@@ -63,7 +63,7 @@ describe(@"JKLIsCollectionValidator+NSError Tests", ^{
         error = nil;
     });
     
-    it(@"should able to construct a NSError object", ^{
+    it(@"should able to  construct a NSError object", ^{
         JKLValidatorErrorCode code = 10;
         NSDictionary * userInfo = @{};
         [validator getErrorByErrorCode:code userInfo:userInfo error:&error];

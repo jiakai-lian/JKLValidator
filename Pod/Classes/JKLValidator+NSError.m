@@ -13,7 +13,7 @@ NSString * const JKLValidatorErrorDomain = @"JKLValidatorErrorDomain";
                       error:(NSError *__autoreleasing *)outError {
     if (outError) {
         *outError = [NSError errorWithDomain:JKLValidatorErrorDomain
-                                        code:JKLValidatorErrorCodeInvalidInput
+                                        code:code
                                     userInfo:userInfo];
     }
 }
