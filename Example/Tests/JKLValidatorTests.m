@@ -49,15 +49,7 @@ describe(@"JKLValidator Tests", ^{
 
 describe(@"NSError+JKLValidator Tests", ^{
     
-//    __block JKLValidator *validator = nil;
     __block NSError * error = nil;
-    
-    beforeAll(^{
-//        validator = [JKLValidator instance];
-//        
-//        expect(validator).toNot.beNil();
-//        expect(validator.validable).to.conformTo(@protocol(JKLValidable));
-    });
     
     beforeEach(^{
         error = nil;
@@ -75,7 +67,6 @@ describe(@"NSError+JKLValidator Tests", ^{
         expect(error.userInfo).to.equal(userInfo);
         expect(error.code).to.equal(code);
     });
-
     
 });
 

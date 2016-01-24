@@ -29,16 +29,6 @@
                 error:(NSError *__autoreleasing *)outError {
     BOOL valid = [self.subValidators orValidateInput:input
                                                 error:outError];
-    
-//    for(id<JKLValidable> subValidator in self.subValidators)
-//    {
-//        valid = valid && [subValidator validateInput:input error:outError];
-//        
-//        if(!valid)
-//        {
-//            break;
-//        }
-//    }
 
     return valid;
 }
