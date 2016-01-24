@@ -23,7 +23,7 @@
 
 @property(nonatomic, copy) NSArray<id <JKLValidable>> *emailValidators;
 @property(nonatomic, copy) NSArray<id <JKLValidable>> *passwordValidators;
-@property(nonatomic, copy) id <JKLValidable> signUpValidator;
+@property(nonatomic, copy) id <JKLValidable>          signUpValidator;
 
 @end
 
@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+
     [self.buttonSignUp jkl_enabled:NO];
 }
 
@@ -42,11 +42,12 @@
 }
 
 #pragma mark - event handling
+
 - (IBAction)emailTextFieldDidEndEditing:(UITextField *)sender {
     [self updateTextField:sender
              ByValidators:self.emailValidators];
-    
-    [self updateUIByValidation:[self.signUpValidator validateInput:@[self.textFieldEmail.text,self.textFieldPassword.text]
+
+    [self updateUIByValidation:[self.signUpValidator validateInput:@[self.textFieldEmail.text, self.textFieldPassword.text]
                                                              error:nil]];
 }
 
@@ -54,7 +55,7 @@
     [self updateTextField:sender
              ByValidators:self.passwordValidators];
 
-    [self updateUIByValidation:[self.signUpValidator validateInput:@[self.textFieldEmail.text,self.textFieldPassword.text]
+    [self updateUIByValidation:[self.signUpValidator validateInput:@[self.textFieldEmail.text, self.textFieldPassword.text]
                                                              error:nil]];
 }
 
@@ -76,8 +77,7 @@
     }
 }
 
-- (void)updateUIByValidation:(BOOL)valid
-{
+- (void)updateUIByValidation:(BOOL)valid {
     [self.buttonSignUp jkl_enabled:valid];
 }
 
@@ -107,7 +107,7 @@
 - (id <JKLValidable>)signUpValidator {
     if (!_signUpValidator) {
         _signUpValidator = [JKLSignUpValidator instanceWithEmailValidators:self.emailValidators
-                                                         passwordValidators:self.passwordValidators].validable;
+                                                        passwordValidators:self.passwordValidators].validable;
     }
     return _signUpValidator;
 }
