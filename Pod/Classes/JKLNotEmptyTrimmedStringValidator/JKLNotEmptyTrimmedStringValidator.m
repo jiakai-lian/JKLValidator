@@ -24,21 +24,18 @@
 - (BOOL)validateInput:(id)input
                 error:(NSError *__autoreleasing *)outError {
     BOOL valid = [self.subValidators andValidateInput:input
-                                         error:outError];
+                                                error:outError];
 
-    if (valid) {
-        valid = [((NSString *) input)
-                stringByTrimmingCharactersInSet:
-                        [NSCharacterSet whitespaceAndNewlineCharacterSet]]
-                .length;
+    if (valid && ![((NSString *) input)
+            stringByTrimmingCharactersInSet:
+                    [NSCharacterSet whitespaceAndNewlineCharacterSet]]
+            .length) {
+        valid = NO;
 
-        if (!valid) {
-
-            [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
-                             userInfo:@{NSLocalizedFailureReasonErrorKey :
-                                        NSLocalizedString(@"The input string is empty after trimmed.", nil)}
-                                error:outError];
-        }
+        [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
+                         userInfo:@{NSLocalizedFailureReasonErrorKey :
+                                    NSLocalizedString(@"The input string is empty after trimmed.", nil)}
+                            error:outError];
     }
 
     return valid;

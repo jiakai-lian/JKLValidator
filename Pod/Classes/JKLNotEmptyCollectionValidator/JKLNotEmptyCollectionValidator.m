@@ -13,7 +13,7 @@
 #import "JKLNotNilValidator.h"
 #import "NSArray+JKLValidator.h"
 
-@interface JKLNotEmptyCollectionValidator()
+@interface JKLNotEmptyCollectionValidator ()
 
 @property(nonatomic, strong) NSArray<id <JKLValidable>> *subValidators;
 
@@ -25,18 +25,15 @@
                 error:(NSError *__autoreleasing *)outError {
     BOOL valid = [self.subValidators andValidateInput:input
                                                 error:outError];
-    
-    if (valid) {
-        valid =  [input count];
-        if(!valid)
-        {
-        NSString *failureReason= NSLocalizedString(@"The input collection has no items.", nil);
+
+    if (valid && ![input count]) {
+        valid = NO;
+        NSString *failureReason = NSLocalizedString(@"The input collection has no items.", nil);
         [self getErrorByErrorCode:JKLValidatorErrorCodeInvalidInput
                          userInfo:@{NSLocalizedFailureReasonErrorKey : failureReason}
                             error:outError];
-        }
     }
-    
+
     return valid;
 }
 
