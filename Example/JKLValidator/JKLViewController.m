@@ -8,6 +8,7 @@
 
 #import "JKLViewController.h"
 
+#import "JKLButton.h"
 #import "JKLValidator.h"
 #import "JKLStringRegularExpressionValidator.h"
 #import "JKLNotEmptyTrimmedStringValidator.h"
@@ -17,7 +18,7 @@
 @property(weak, nonatomic) IBOutlet UITextField *textFieldEmail;
 @property(weak, nonatomic) IBOutlet UITextField *textFieldPassword;
 
-@property(weak, nonatomic) IBOutlet UIButton *buttonSignUp;
+@property(weak, nonatomic) IBOutlet JKLButton *buttonSignUp;
 
 @property(nonatomic, strong) NSArray<id <JKLValidable>> *emailValidators;
 @property(nonatomic, strong) NSArray<id <JKLValidable>> *passwordValidators;
@@ -30,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.buttonSignUp.enabled = NO;
+    [self.buttonSignUp jkl_enabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,11 +43,15 @@
 - (IBAction)emailTextFieldDidEndEditing:(UITextField *)sender {
     [self updateTextField:sender
              ByValidators:self.emailValidators];
+    
+    [self updateUIByValidation:[self.emailValidators andValidateInput:sender.text error:nil] && [self.passwordValidators andValidateInput:sender.text error:nil]];
 }
 
 - (IBAction)passwordTextFieldDidEndEditing:(UITextField *)sender {
     [self updateTextField:sender
              ByValidators:self.passwordValidators];
+    
+    [self updateUIByValidation:[self.emailValidators andValidateInput:sender.text error:nil] && [self.passwordValidators andValidateInput:sender.text error:nil]];
 }
 
 - (IBAction)tapSignUpButton:(id)sender {
@@ -59,12 +64,17 @@
     NSError *error = nil;
     BOOL    valid  = [validators andValidateInput:textField.text
                                             error:&error];
-    if (valid) {
+    if (valid || !textField.text.length) {
         textField.backgroundColor = [UIColor whiteColor];
     }
     else {
         textField.backgroundColor = [UIColor redColor];
     }
+}
+
+- (void)updateUIByValidation:(BOOL)valid
+{
+    [self.buttonSignUp jkl_enabled:valid];
 }
 
 #pragma mark - private properties
