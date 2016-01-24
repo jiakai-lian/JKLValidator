@@ -13,6 +13,7 @@
 #import "JKLStringRegularExpressionValidator.h"
 #import "JKLNotEmptyTrimmedStringValidator.h"
 #import "NSArray+JKLValidator.h"
+#import "JKLSignUpValidator.h"
 
 @interface JKLViewController ()
 @property(weak, nonatomic) IBOutlet UITextField *textFieldEmail;
@@ -20,8 +21,9 @@
 
 @property(weak, nonatomic) IBOutlet JKLButton *buttonSignUp;
 
-@property(nonatomic, strong) NSArray<id <JKLValidable>> *emailValidators;
-@property(nonatomic, strong) NSArray<id <JKLValidable>> *passwordValidators;
+@property(nonatomic, copy) NSArray<id <JKLValidable>> *emailValidators;
+@property(nonatomic, copy) NSArray<id <JKLValidable>> *passwordValidators;
+@property(nonatomic, copy) id <JKLValidable> signUpValidator;
 
 @end
 
@@ -44,14 +46,16 @@
     [self updateTextField:sender
              ByValidators:self.emailValidators];
     
-    [self updateUIByValidation:[self.emailValidators andValidateInput:self.textFieldEmail.text error:nil] && [self.passwordValidators andValidateInput:self.textFieldPassword.text error:nil]];
+    [self updateUIByValidation:[self.signUpValidator validateInput:@[self.textFieldEmail.text,self.textFieldPassword.text]
+                                                             error:nil]];
 }
 
 - (IBAction)passwordTextFieldDidEndEditing:(UITextField *)sender {
     [self updateTextField:sender
              ByValidators:self.passwordValidators];
-    
-    [self updateUIByValidation:[self.emailValidators andValidateInput:self.textFieldEmail.text error:nil] && [self.passwordValidators andValidateInput:self.textFieldPassword.text error:nil]];
+
+    [self updateUIByValidation:[self.signUpValidator validateInput:@[self.textFieldEmail.text,self.textFieldPassword.text]
+                                                             error:nil]];
 }
 
 - (IBAction)tapSignUpButton:(id)sender {
@@ -95,6 +99,14 @@
         _passwordValidators = @[[JKLNotEmptyTrimmedStringValidator instance].validable];
     }
     return _passwordValidators;
+}
+
+- (id <JKLValidable>)signUpValidator {
+    if (!_signUpValidator) {
+        _signUpValidator = [JKLSignUpValidator instanceWithEmailValidators:self.emailValidators
+                                                         passwordValidators:self.passwordValidators].validable;
+    }
+    return _signUpValidator;
 }
 
 
